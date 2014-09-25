@@ -8,24 +8,24 @@ param = rigorconfig.params.param_set;
 
 %Check if image location exists or not.
 
-if(~exist(rigorconfig.imageLocation, 'dir'))
+if(~exist(config.imageLocation, 'dir'))
 	fprintf('Image Location does not exist. Please check path once again \n');
 	return;
 end
 
-if(~exist(rigorconfig.outputLocation, 'dir'))
+if(~exist(config.outputLocation, 'dir'))
 	fprintf('Image Location does not exist. Please check path once again \n');
 	return;
 end
 
 %Load All images in a particular folder
-images = dir(rigorconfig.imageLocation);
+images = dir(config.imageLocation);
 images = regexpi({images.name}, '.*jpg|.*jpeg|.*png|.*bmp', 'match');
 images = [images{:}];
 
 for i=1:length(images)
     imname = char(images(i));
-    impath = fullfile(rigorconfig.imageLocation, imname);
+    impath = fullfile(config.imageLocation, imname);
     whos impath
 	im=imread(impath);
     
@@ -49,7 +49,7 @@ for i=1:length(images)
 	end
 	proposals.boxes= boxes;
 	saveFile=[imname '.mat'];
-	save([rigorconfig.outputLocation saveFile], 'proposals');
+	save([config.outputLocation saveFile], 'proposals');
         fprintf('saved proposals');
         %disp(boxes);
         %disp(proposals);

@@ -1,12 +1,10 @@
 {
-
-	"edgeBoxes":{
-		"imageLocation": "/home/lpemula/test_images",
-		"outputLocation":	 "/home/lpemula/test_images",
-		
-		"opts" : {
-			"numProposals" : 10000,
-			"isbaseline" : false,
+	"imageLocation": "/home/lpemula/test_images",
+	"outputLocation":	 "/home/lpemula/test_images",
+	
+	"edgeBoxes":{	
+	"opts" : {
+			"isBaseline" : false,
 			"order": "descend"
 				},
 		"params" : {
@@ -24,45 +22,21 @@
 		}
 	},
 
-	"bing" : {
-			"imageLocation": "/home/lpemula/test_images",
-          		"outputLocation":	 "/home/lpemula/test_images",
-			
-			"opts" : {
-				"numProposals" : 10000,
-				"isbaseline" : false,
-				"order": "descend"
-			}
-		},
-
-	"cpmc" : {
-			"opts" : {
-				"numProposals" : 10000,
-				
-				"isbaseline" : false,
-				"order": "descend"
-			}
-		},
 	"endres" : {
-			"imageLocation": "/home/lpemula/test_images",
-         		"outputLocation":	 "/home/lpemula/test_images",
-			"opts" : {
-				"numProposals" : 10000,
-				"isbaseline" : false,
+		"opts" : {
+				"isBaseline" : false,
 				"order": "none"
+			},
+			"params":{
+
 			}
 		},
 	"mcg" : {
-			"boostpath" : "/opt/local/include/",
-			"pascal2012path" : "/full/path",
-			"bsds500path" : "/full/path",
-			"imageLocation": "/home/lpemula/test_images/",
-		        "outputLocation":	 "/home/lpemula/test_images/",
-			"opts": {
-				"numProposals" : 10000,
-
-				"isbaseline" : false,
-				"order": "descend"		
+		"opts": {
+				"boostpath" : "/opt/local/include/",
+				"isBaseline" : false,
+				"order": "descend",		
+				"mode": "fast"
 			},
 			"params" : {
 				"mode" : "accurate",
@@ -71,55 +45,51 @@
 
 		},
 	"objectness" : {
-			"imageLocation": "/home/lpemula/test_images",
-		        "outputLocation":	 "/home/lpemula/test_images",
-			"opts" : {
-				"numProposals" : 10000,
-				"isbaseline" : false,
+		"opts" : {
+				"isBaseline" : false,
 				"order": "descend"
+			},
+			"params":{
+
 			}	
 		},
 
 	"rahtu" : {
-			"imageLocation": "/home/lpemula/test_images",
-			"outputLocation":	 "/home/lpemula/test_images",
-			"opts" : {
-				"numProposals" : 10000,
-
-				"isbaseline" : false,
+		"opts" : {
+				"isBaseline" : false,
 				"order": "none"
+			},
+
+			"params":{
+
 			}
-			
 		},
 
 	"randomPrim": {
-			"imageLocation": "/home/lpemula/test_images",
-			"outputLocation":	 "/home/lpemula/test_images",
-			"opts" : {
-				"numProposals" : 10000,
-			"isbaseline" : false,
+		"opts" : {
+			"isBaseline" : false,
 			"order": "none"
+			},
+			"params":{
+
 			}
 	},
 
 	"rantalankila" : {
-		"imageLocation": "/home/lpemula/test_images",
-		"outputLocation":	 "/home/lpemula/test_images",
-			"opts" : {
-				"numProposals" : 10000,
-			"isbaseline" : false,
+		"opts" : {
+			"isBaseline" : false,
 			"order": "none"
+			},
+			"params":{
+
 			}
 			
 		},
 
 	"selective_search" : {
-			"imageLocation": "/home/lpemula/test_images",
-			"outputLocation":	 "/home/lpemula/test_images",
-			"opts" : {
-				"numProposals" : 10000,
-			"isbaseline" : false,
-			"order": "ascend"
+		"opts" : {
+				"isBaseline" : false,
+				"order": "ascend"
 			},
 			"params": {
 				"ks" :[50, 100],
@@ -127,15 +97,12 @@
 				"minBoxWidth":20,
 				"imWidth":500,
 				"mode":"fast",
-				"numProposals":10000,
 				"colorTypes": ["Hsv", "Lab", "RGI", "H", "Intensity"]
 			}
 		},
 
 	"rigor" : {
-			"imageLocation": "/home/lpemula/test_images",
-			"outputLocation":	 "/home/lpemula/test_images",
-			"opts" : {
+		"opts" : {
 				"numProposals" : 100,
 				"isbaseline" : false,
 				"order": "none"

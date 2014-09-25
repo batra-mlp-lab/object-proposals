@@ -1,14 +1,20 @@
-function compute_best_recall_candidates(testset, methods)
- fprintf('computing besti\n');
+function compute_best_recall_candidates(testset, config)
   num_annotations = testset.num_annotations;
   candidates_thresholds = round(10 .^ (0:0.5:4));
   num_candidates_thresholds = numel(candidates_thresholds);
-  for method_idx = 1:numel(methods)
-  	method = methods(method_idx);
+ 
+  proposalNames = fieldnames(config);
+  proposalsToEvaluate=proposalNames(3:end-1);
+  
+  for i = 1:length(proposalsToEvaluate)
+  	method = config.(char(proposalsToEvaluate{i}));
+	candidate_dir=[config.outputLocation proposalsToEvaluate{i}];
+	fileName=[candidate_dir '/' 'best_recall_candidates.mat']
     	try
-      		load(method.best_voc07_candidates_file, 'best_candidates');
+   		method=config.(char(proposalsToEvaluate(i)))
+      		load(fileName);
+ 		continue;
     	catch
-
 	    % preallocate
   	  	best_candidates = [];
     		best_candidates(num_candidates_thresholds).candidates_threshold = [];
@@ -21,17 +27,14 @@ function compute_best_recall_candidates(testset, methods)
     		end
 
     		pos_range_start = 1;
-    		testset.impos(1).im
     		for j = 1:numel(testset.impos)
-      			fprintf('evalutating %s: %d/%d\n', method.name, j, numel(testset.impos));
       			pos_range_end = pos_range_start + size(testset.impos(j).boxes, 1) - 1;
       			assert(pos_range_end <= num_annotations);
 
      			fprintf('sampling candidates for image %d/%d\n', j, numel(testset.impos));
-      			img_id = [testset.impos(j).name] ;
+      			img_id = [testset.impos(j).im] ;
       			for i = 1:num_candidates_thresholds
-        			[candidates, scores] = get_candidates(method, img_id, ...
-          				candidates_thresholds(i));
+        			[candidates, scores] = get_candidates(candidate_dir,method, img_id,candidates_thresholds(i),true);
         			if isempty(candidates)
           				impos_best_ious = zeros(size(testset.impos(j).boxes, 1), 1);
           				impos_best_boxes = zeros(size(testset.impos(j).boxes, 1), 4);
@@ -44,7 +47,7 @@ function compute_best_recall_candidates(testset, methods)
         			best_candidates(i).image_statistics(j).num_candidates = size(candidates, 1);
       			end
       			pos_range_start = pos_range_end + 1;
-      			save(method.best_voc07_candidates_file, 'best_candidates');
+      			save(fileName, 'best_candidates');
     		end
    	end
   end
