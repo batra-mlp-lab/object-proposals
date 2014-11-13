@@ -8,7 +8,9 @@ function plotMetric(configjson)
   % figures/.
   parDir = configjson.params.parDir;
   testset = load(fullfile(parDir, 'evaluation-metrics', 'data/pascal_gt_data.mat'));
-  methods = getMethods(configjson);
+  methods = getMethods(configjson);% This function is not available in the repository 
+  % Use methods = getmethods() instead , make changes accoriding to your
+  % need
   
   compute_best_recall_candidates(testset, methods);
   
