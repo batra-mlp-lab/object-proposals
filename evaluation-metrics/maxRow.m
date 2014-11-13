@@ -1,4 +1,4 @@
-function [matching, objective] = greedy_matching_rowwise(iou_matrix)
+function [matching, objective] = maxRow(iou_matrix)
   assert(size(iou_matrix, 1) <= size(iou_matrix, 2));
   n = size(iou_matrix, 1);
   matching = zeros(n, 1);
