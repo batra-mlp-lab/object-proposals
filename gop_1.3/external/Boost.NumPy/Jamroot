@@ -1,7 +1,0 @@
-
-
-project boost_numpy
-   : requirements <include>.
-   : build-dir bin.v2
-   ;
-
