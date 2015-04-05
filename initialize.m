@@ -136,8 +136,8 @@ configjson.selective_search.params.simFunctionHandles = {@SSSimColourTextureSize
         if((strcmp(proposalNames(i), 'imageLocation')==1 || strcmp(proposalNames(i), 'outputLocation')==1 || strcmp(proposalNames(i), 'params')==1))
             continue;
         else    
-            eval(sprintf('configjson.%s.opts.outputLocation = fullfile(configjson.outputLocation,proposalNames(i));',char(proposalNames(i))))
-            eval(sprintf('configjson.%s.opts.name = proposalNames(i);',  char(proposalNames(i)) ))
+            eval(sprintf('configjson.%s.opts.outputLocation = fullfile(configjson.outputLocation,char(proposalNames(i)));',char(proposalNames(i))))
+            eval(sprintf('configjson.%s.opts.name = char(proposalNames(i));',  char(proposalNames(i)) ))
             eval(sprintf('configjson.%s.opts.color = (randi(256,1,3)-1)/256;',  char(proposalNames(i))  ))
 
         end

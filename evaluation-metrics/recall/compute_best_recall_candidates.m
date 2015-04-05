@@ -8,7 +8,7 @@ function compute_best_recall_candidates(testset, config)
   
   for i = 1:length(proposalsToEvaluate)
   	method = config.(char(proposalsToEvaluate{i}));
-	candidate_dir=[config.outputLocation proposalsToEvaluate{i}];
+	candidate_dir=[config.outputLocation '/' proposalsToEvaluate{i}];
 	fileName=[candidate_dir '/' 'best_recall_candidates.mat']
     	try
    		method=config.(char(proposalsToEvaluate(i)))

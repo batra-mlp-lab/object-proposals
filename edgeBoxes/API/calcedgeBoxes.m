@@ -2,7 +2,7 @@ function calcedgeBoxes( config )
 ebconfig = config.edgeBoxes;
 
 if(~exist([config.outputLocation '/edgeBoxes'], 'dir'))
-        mkdir(config.outputLocation,'/dgeBoxes')
+        mkdir(config.outputLocation,'/edgeBoxes')
 end
 
 %Load All images in a particular folder
