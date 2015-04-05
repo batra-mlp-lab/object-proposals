@@ -10,7 +10,7 @@ Compile:
 ========
 i. Run compile.m
 
-
+During Rigor compilation, if ld  cannot find -lboost_system-mt or -lboost_timer-mt, use their non-multithreaded counterparts by removing '-mt'
 
  Generating proposals:
 ======
