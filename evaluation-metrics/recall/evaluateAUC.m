@@ -46,7 +46,7 @@ function evaluateAUC( methods, outputLocation)
   wid = 10;
   set(gcf, 'Units','centimeters', 'Position',[0 0 wid hei]);
   set(gcf, 'PaperPositionMode','auto');
-  printpdf('figures/num_candidates_area_under_recall.pdf');
+  printpdf([outputLocation '/' 'figures/num_candidates_area_under_recall.pdf']);
 
   % fixed threshold
   legend_locations = {'SouthEast', 'NorthWest', 'NorthWest'};
